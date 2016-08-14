@@ -1,5 +1,5 @@
 (ns lein-modules.versionization
-  (:use [lein-modules.common :only (config)]
+  (:use [lein-modules.common :only (config parent)]
         [leiningen.core.project :only (artifact-map)]))
 
 (defn versions
@@ -42,3 +42,17 @@
     (-> project
       (update-in [:dependencies] f)
       (update-in [:parent] expand-version vmap))))
+
+(defn get-root-project
+  [project]
+  (if-let [p (parent project)]
+    (recur p)
+    project))
+
+(defn inherit-project-version
+  [project]
+  (if (= (:version project) "_")
+    (let [p (get-root-project project)]
+      (System/setProperty "version" (:version p))
+      (assoc project :version (:version p)))
+    project))

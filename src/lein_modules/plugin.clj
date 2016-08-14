@@ -1,5 +1,5 @@
 (ns lein-modules.plugin
-  (:use [lein-modules.versionization :only (versionize)]
+  (:use [lein-modules.versionization :only (versionize inherit-project-version)]
         [lein-modules.inheritance    :only (inherit)]
         [lein-modules.common         :only (config)]))
 
@@ -11,7 +11,8 @@
   (if (-> project meta ::middleware-applied)
     project
     (-> project
-      (vary-meta assoc ::middleware-applied true)
-      inherit
-      versionize
-      (vary-meta dissoc ::middleware-applied))))
+        (vary-meta assoc ::middleware-applied true)
+        inherit
+        inherit-project-version
+        versionize
+        (vary-meta dissoc ::middleware-applied))))
