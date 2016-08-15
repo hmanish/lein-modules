@@ -1,6 +1,6 @@
-(defproject lein-modules "0.3.12-SNAPSHOT"
+(defproject lein-modules-bpk "0.3.12.bpk"
   :description "Similar to Maven multi-module projects, but less sucky"
-  :url "https://github.com/jcrossley3/lein-modules"
+  :url "https://github.com/hmanish/lein-modules.git"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :eval-in-leiningen true
