@@ -1,4 +1,4 @@
-(defproject lein-modules-bpk "0.3.12.bpk"
+(defproject lein-modules-bpk/lein-modules "0.3.13.bpk-SNAPSHOT"
   :description "Similar to Maven multi-module projects, but less sucky"
   :url "https://github.com/hmanish/lein-modules.git"
   :license {:name "Eclipse Public License"
